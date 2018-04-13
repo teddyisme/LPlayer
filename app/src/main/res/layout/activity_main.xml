@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <lixs.com.iplayerlib.LPlayerView
+        android:id="@+id/lplayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/black"
+        app:controllerViewLayoutID="@layout/player_controller"
+        app:currentTimeTextViewID="@id/current_time_tv"
+        app:headerViewLayoutID="@layout/player_header"
+        app:playButtonEndImage="@mipmap/simple_player_stop_white_24dp"
+        app:playButtonID="@id/play_btn"
+        app:playButtonPlayingImage="@mipmap/simple_player_arrow_white_24dp"
+        app:seekBarID="@id/seek_bar"
+        app:stretchButtonID="@id/full_screen_v"
+        app:totalTimeTextViewID="@id/total_time_tv"
+        app:stretchButtonImage="@mipmap/fullscreen"
+        app:shrinkButtonImage="@mipmap/exit_fullscreen"/>
+
+</LinearLayout>

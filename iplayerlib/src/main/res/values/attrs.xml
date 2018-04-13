@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LPlayerView">
+        <attr name="controllerViewLayoutID" format="reference" />
+        <attr name="headerViewLayoutID" format="reference" />
+        <attr name="playButtonID" format="reference" />
+        <attr name="playButtonPlayingImage" format="reference" />
+        <attr name="playButtonEndImage" format="reference" />
+        <attr name="seekBarID" format="reference" />
+        <attr name="stretchButtonID" format="reference" />
+        <attr name="stretchButtonImage" format="reference" />
+        <attr name="shrinkButtonImage" format="reference" />
+        <attr name="currentTimeTextViewID" format="reference" />
+        <attr name="totalTimeTextViewID" format="reference" />
+        <attr name="coverButtonImage" format="reference" />
+    </declare-styleable>
+</resources>
