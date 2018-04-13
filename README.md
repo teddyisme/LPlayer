@@ -1,8 +1,8 @@
 # LPlayer
 基于IJKplayer进行封装，方便使用，随意定制UI
 ### 简介
-
-
+#### LPlayer 
+![image](https://github.com/teddyisme/LPlayer/blob/master/something/git.gif)
 
 ### 基本使用:
 #### 1、导入库：
