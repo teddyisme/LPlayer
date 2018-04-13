@@ -4,6 +4,13 @@
 #### LPlayer 
 ![image](https://github.com/teddyisme/LPlayer/blob/master/something/git.gif)
 
+- 基于ijkplayer
+- 控制面板UI随意定制
+- 头部UI随意定制
+- 控制面板划入划出动画
+- 手势控制音量和亮度
+- 双击横竖屏切换
+
 ### 基本使用:
 #### 1、导入库：
  
