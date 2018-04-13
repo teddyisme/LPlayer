@@ -32,7 +32,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import lixs.com.iplayerlib.widget.PlayState;
 import lixs.com.iplayerlib.widget.media.IjkVideoView;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
@@ -46,8 +45,6 @@ import static lixs.com.iplayerlib.widget.PlayState.STATE_SEEKING;
 
 /**
  * @author XinSheng
- * @description
- * @date 2018/4/10
  */
 public class LPlayerView extends FrameLayout implements View.OnTouchListener {
     private Context mContext;

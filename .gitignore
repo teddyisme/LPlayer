@@ -9,3 +9,4 @@ gradlew.bat
 /build
 /captures
 .externalNativeBuild
+iplayerlib/bintrayUpload.gradle

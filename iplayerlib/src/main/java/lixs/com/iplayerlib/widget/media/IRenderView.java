@@ -68,17 +68,17 @@ public interface IRenderView {
 
     interface IRenderCallback {
         /**
-         * @param holder
+         * @param holder ISurfaceHolder
          * @param width  could be 0
          * @param height could be 0
          */
         void onSurfaceCreated(@NonNull ISurfaceHolder holder, int width, int height);
 
         /**
-         * @param holder
+         * @param holder ISurfaceHolder
          * @param format could be 0
-         * @param width
-         * @param height
+         * @param width width
+         * @param height height
          */
         void onSurfaceChanged(@NonNull ISurfaceHolder holder, int format, int width, int height);
 

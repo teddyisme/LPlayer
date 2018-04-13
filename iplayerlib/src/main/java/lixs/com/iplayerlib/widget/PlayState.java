@@ -2,8 +2,6 @@ package lixs.com.iplayerlib.widget;
 
 /**
  * @author XinSheng
- * @description
- * @date 2018/4/11
  */
 public class PlayState {
     /**
