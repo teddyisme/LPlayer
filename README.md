@@ -14,7 +14,7 @@
 ### 基本使用:
 #### 1、导入库：
  
-     implementation 'lixs.com.LPlayer:iplayerlib:1.1'
+     implementation 'lixs.com.LPlayer:iplayerlib:1.2'
     
  #### 2、在布局文件中创建播放组件   
 ``` 
