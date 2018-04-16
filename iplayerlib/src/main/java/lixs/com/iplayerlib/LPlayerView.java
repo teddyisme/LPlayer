@@ -13,7 +13,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -55,7 +54,7 @@ public class LPlayerView extends FrameLayout implements View.OnTouchListener {
     /**
      * 手势处理
      */
-    public GestureDetector gestureDetector;
+    private GestureDetector gestureDetector;
     /**
      * 播放器
      */
@@ -185,7 +184,14 @@ public class LPlayerView extends FrameLayout implements View.OnTouchListener {
      * 封面播放按钮
      */
     private int coverPlayImageID;
+    /**
+     *
+     */
     private ProgressBar mProgressBar;
+    /**
+     * 状态监听
+     */
+    private LPlayerListener lPlayerListener;
 
     public LPlayerView(@NonNull Context context) {
         super(context);
@@ -224,6 +230,10 @@ public class LPlayerView extends FrameLayout implements View.OnTouchListener {
         //初始化音频管理器
         mAudioManager = (AudioManager) mContext.getSystemService(AUDIO_SERVICE);
 
+    }
+
+    public void setLPlayerListener(LPlayerListener lPlayerListener) {
+        this.lPlayerListener = lPlayerListener;
     }
 
     private Handler handler = new Handler(Looper.getMainLooper()) {
@@ -392,7 +402,6 @@ public class LPlayerView extends FrameLayout implements View.OnTouchListener {
                 coverBuutonsView.setVisibility(VISIBLE);
                 coverBtn.setVisibility(GONE);
                 mProgressBar.setVisibility(VISIBLE);
-                Log.d("PPP", "onStopTrackingTouch");
             }
         });
     }
@@ -418,6 +427,9 @@ public class LPlayerView extends FrameLayout implements View.OnTouchListener {
                 playBtn.setBackgroundResource(endPlayImage);
             }
             coverBuutonsView.setVisibility(GONE);
+            if (lPlayerListener != null) {
+                lPlayerListener.onPlayerStart();
+            }
             hideController();
         }
     }
@@ -429,7 +441,9 @@ public class LPlayerView extends FrameLayout implements View.OnTouchListener {
             coverBuutonsView.setVisibility(VISIBLE);
             coverBtn.setBackgroundResource(coverPlayImageID);
         }
-        getCurrentPosition();
+        if (lPlayerListener != null) {
+            lPlayerListener.onPlayerPause(getCurrentPosition());
+        }
         userState = STATE_PAUSED;
         controllerIn();
         coverBuutonsView.setVisibility(GONE);
@@ -803,6 +817,9 @@ public class LPlayerView extends FrameLayout implements View.OnTouchListener {
             ((Activity) mContext).getWindow().clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
         setVideoHeight(fullScreen);
+        if (lPlayerListener != null) {
+            lPlayerListener.onScreenChanged(fullScreen);
+        }
     }
 
     /**
@@ -831,10 +848,13 @@ public class LPlayerView extends FrameLayout implements View.OnTouchListener {
     private IMediaPlayer.OnErrorListener errorListener = new IMediaPlayer.OnErrorListener() {
         @Override
         public boolean onError(IMediaPlayer iMediaPlayer, int i, int i1) {
-            Toast.makeText(mContext, "视频播放错误", Toast.LENGTH_LONG).show();
-            coverBuutonsView.setVisibility(VISIBLE);
-            coverBtn.setBackgroundResource(R.mipmap.lvideo_error);
-
+            if (lPlayerListener != null) {
+                lPlayerListener.onPlayerError();
+            } else {
+                Toast.makeText(mContext, "视频播放错误", Toast.LENGTH_LONG).show();
+                coverBuutonsView.setVisibility(VISIBLE);
+                coverBtn.setBackgroundResource(R.mipmap.lvideo_error);
+            }
             return false;
         }
     };
