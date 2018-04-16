@@ -1,13 +1,20 @@
 # LPlayer
 基于IJKplayer进行封装，方便使用，随意定制UI
 ### 简介
+#### LPlayer 
+![image](https://github.com/teddyisme/LPlayer/blob/master/something/git.gif)
 
-
+- 基于ijkplayer
+- 控制面板UI随意定制
+- 头部UI随意定制
+- 控制面板划入划出动画
+- 手势控制音量和亮度
+- 双击横竖屏切换
 
 ### 基本使用:
 #### 1、导入库：
  
-     implementation 'lixs.com.LPlayer:iplayerlib:1.0'
+     implementation 'lixs.com.LPlayer:iplayerlib:1.2'
     
  #### 2、在布局文件中创建播放组件   
 ``` 
@@ -108,7 +115,15 @@ private LPlayerView lplayer;
 - 配置清单中activity
 > android:configChanges="orientation|keyboardHidden|screenSize"
 
-  
+#### 5、相关方法
+- 获取当前播放位置
+    > int getCurrentPosition()
+- 设置监听
+    > setLPlayerListener(LPlayerListener lPlayerListener);
+- 获取传入的头部视图
+    > ViewGroup getHeaderlView() 
+- 获取传入的控制视图
+    > ViewGroup getControllerView();
 
 ---
     在学习视频播放中进行封装整合，希望和大家一起学习进步。该项目会不定期不定量更新。
